@@ -1,0 +1,22 @@
+name: s
+version: master
+summary: Open a web search in your terminal
+description: |
+  Web search from the terminal. Just opens in your browser.
+
+grade: devel
+confinement: strict
+
+apps:
+  s:
+    command: s
+    plugs: [network]
+  server:
+    command: s -s
+    plugs: [network, network-bind]
+
+parts:
+  s:
+    source: .
+    plugin: go
+    go-importpath: github.com/zquestz/s
